@@ -1,0 +1,23 @@
+plugins {
+    id 'java'
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        name = "GitHubPackages"
+        url = uri("https://maven.pkg.github.com/matdavy1/github-packages")
+        credentials {
+            username = project.findProperty("gpr.user")
+            password = project.findProperty("gpr.key")
+        }
+    }
+}
+
+
+dependencies {
+    implementation group: 'demo', name: 'lib', version: '0.1.0'
+    implementation group: 'demo2', name: 'lib', version: '0.1.0'
+    implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '4.0.0'
+
+}
